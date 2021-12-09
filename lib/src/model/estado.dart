@@ -3,7 +3,7 @@ import 'regiao.dart';
 /// Classe que modela um Estado na API do IBGE
 class Estado {
   /// Id do estado IBGE
-  int? id;
+  String? id;
 
   /// Sigla identificadora do estado
   String? sigla;
@@ -23,7 +23,7 @@ class Estado {
 
   /// Método para desserializar o objeto
   Estado.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id'].toString();
     sigla = json['sigla'];
     nome = json['nome'];
     regiao = json['regiao'] != null ? Regiao.fromJson(json['regiao']) : null;
