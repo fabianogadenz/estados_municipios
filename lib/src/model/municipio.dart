@@ -2,7 +2,7 @@ import 'microrregiao.dart';
 
 /// Classe que modela um Município na API do IBGE
 class Municipio {
-  int? id;
+  String? id;
   String? nome;
   Microrregiao? microrregiao;
 
@@ -14,7 +14,7 @@ class Municipio {
 
   /// Método para desserializar o objeto
   Municipio.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id'].toString();
     nome = json['nome'];
     microrregiao = json['microrregiao'] != null
         ? Microrregiao.fromJson(json['microrregiao'])
@@ -24,7 +24,7 @@ class Municipio {
   /// Método para serializar o objeto
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['id'] = id;
+    data['id'] = id.toString();
     data['nome'] = nome;
     if (microrregiao != null) {
       data['microrregiao'] = microrregiao!.toJson();
